@@ -1,0 +1,12 @@
+*, html{
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+body{
+  background: #f6f6f6;
+}
+
+
+a{
+  text-decoration: none;
+}

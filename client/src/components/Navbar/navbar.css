@@ -1,0 +1,32 @@
+
+.login-link{
+    color: black;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.header {
+    background: #fff none repeat scroll 0 0 !important;
+    transition: all .5s ease 0s !important;
+    color: black;
+    width: 100%;
+    position: fixed !important;
+}
+
+
+.header.sticky {
+    background: #eee none repeat scroll 0 0  !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%)  !important;
+    /* position: fixed;
+    z-index: 9999999; */
+}
+
+.title{
+    color: white;
+    text-decoration: none;
+}
+
+.title:hover{
+    color: white;
+    text-decoration: none;
+}

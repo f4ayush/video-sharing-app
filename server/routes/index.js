@@ -7,6 +7,7 @@ const comment = require("./comment")
 
 router.use('/users', users);
 router.use('/video', video);
+router.use('/comment', comment);
 
 module.exports = router;
 
