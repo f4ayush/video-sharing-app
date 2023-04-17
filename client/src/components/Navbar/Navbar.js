@@ -20,6 +20,7 @@ import * as actionType from "../../constants/actionTypes";
 import "./navbar.css";
 import { searchProducts } from "../../actions/allProducts";
 import { Button } from "@mui/material";
+import Upload from "../Upload/Upload";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -74,6 +75,7 @@ export default function NewBar() {
     JSON.parse(localStorage.getItem("profile"))
   );
   const [searchParam, setsearchParam] = React.useState("");
+  const [showUploadPopup, setShowUploadPopUp] = React.useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useNavigate();
@@ -254,6 +256,7 @@ export default function NewBar() {
               inputRef={searchRef}
             />
           </Search>
+          <Button onClick={()=>setShowUploadPopUp(true)}>+</Button>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {user && (
@@ -297,6 +300,9 @@ export default function NewBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      <Upload show={showUploadPopup} setShow={setShowUploadPopUp}/>
     </Box>
   );
 }
+
+

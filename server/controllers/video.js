@@ -1,4 +1,6 @@
 // Import the Video model
+const admin = require('firebase-admin');
+const { v4: uuidv4 } = require('uuid');
 const Video = require('../models/video');
 const User = require('../models/user');
 
@@ -19,6 +21,7 @@ exports.getVideo = async (req, res) => {
 // POST /videos - Create a new video
 exports.createVideo = async (req, res) => {
   const { title, description, category, url, userId } = req.body;
+  
   try {
     const video = await Video.create({
       title,
