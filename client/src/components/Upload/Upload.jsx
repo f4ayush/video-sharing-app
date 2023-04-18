@@ -11,6 +11,7 @@ import {
 import app from "../../firebase";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { addVideo } from '../../api';
 
 const style = {
     position: 'absolute',
@@ -150,8 +151,9 @@ export default function Upload({show, setShow}) {
   
     const handleUpload = async (e)=>{
       e.preventDefault();
-      const res = await axios.post("/videos", {...inputs, tags})
-      setOpen(false)
+      const res = await addVideo({...inputs, tags})
+    //   const res = await axios.post("/videos", {...inputs, tags})
+      setShow(false)
       res.status===200 && navigate(`/video/${res.data._id}`)
     }
   
@@ -165,7 +167,7 @@ export default function Upload({show, setShow}) {
 >
 <Container>
       <Wrapper>
-        <Close onClick={() => setOpen(false)}>X</Close>
+        <Close onClick={() => setShow(false)}>X</Close>
         <Title>Upload a New Video</Title>
         <Label>Video:</Label>
         {videoPerc > 0 ? (

@@ -10,15 +10,18 @@ API.interceptors.request.use((req) => {
     return req;
   });
 
+  export const createUser = (userData) => API.post('/users/sign-up', userData)
+  export const logIn = (userData) => API.post('/users/login', userData)
+  export const addVideo = (data) => API.post('/video', data)
+  export const allVideos = () => API.get('/video')
+
 export const createSeller = (sellerData) => API.post('/seller/signUp', sellerData)
 export const logInSeller = (sellerData) => API.post('/seller/login', sellerData)
 
-export const createBuyer = (userData) => API.post('/users/sign-up', userData)
-export const logInBuyer = (userData) => API.post('/users/login', userData)
+
 export const resetPassword = (token, password) => API.post('/users/reset-password/'+token, password)
 export const forgotPassword = (email) => API.post('/users/forgot-password', email)
 
-export const allProducts = () => API.get('/products')
 
 export const getProduct = (productId) => API.get('/products/'+productId)
 export const searchProducts = (param) => API.get('/products/search?q='+param)
@@ -31,7 +34,5 @@ export const verifyPayment = (data) => API.post('/checkout/verify', data)
 export const addProduct = (sellerData) => API.post('/products', sellerData)
 export const deleteProduct = (productDetails) => API.post('/seller/deleteProduct', productDetails)
 export const editProduct = (productDetails) => API.post('/seller/editProduct', productDetails)
-
-
 
 export const sellerProducts = (userId) => API.post('/seller/sellerProducts', { userId })

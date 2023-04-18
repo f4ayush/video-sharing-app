@@ -9,6 +9,7 @@ const videoSchema = new mongoose.Schema({
   URL: { type: String, required: true },
   uploader: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  likesCount:{type: Number},
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 });
 

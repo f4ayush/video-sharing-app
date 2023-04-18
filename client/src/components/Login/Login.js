@@ -15,11 +15,11 @@ import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigation, useLocation } from 'react-router-dom'
-import { loginBuyer, signUpBuyer } from '../../../actions/login'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { login, signUp } from '../../actions/login'
 import { useDispatch, useSelector } from 'react-redux'
-import "../login.css"
-import { RESET_LOGIN_ERROR_MESSAGE } from '../../../constants/actionTypes';
+import "./login.css"
+import { RESET_LOGIN_ERROR_MESSAGE } from '../../constants/actionTypes';
 
 function Copyright(props) {
   return (
@@ -41,7 +41,7 @@ export default function SignIn() {
     const [isSignup, setisSignup] = useState(false)
     const dispatch = useDispatch()
     const location = useLocation()
-    const history = useNavigation()
+    const navigate = useNavigate()
     const error = useSelector(state=> state.error)
     const isLoading = useSelector(state=> state.isLoading)
     useEffect(() => {
@@ -64,10 +64,9 @@ export default function SignIn() {
       const data = new FormData(event.currentTarget);
       const email=data.get('email')
       const password=data.get('password')
-      const firstName=data.get('firstName')
-      const lastName=data.get('lastName')
+      const name=data.get('name')
       
-      isSignup ? dispatch(signUpBuyer({email, lastName, firstName, password}, history)) : dispatch(loginBuyer({email, password}, history))
+      isSignup ? dispatch(signUp({email, name, password}, navigate)) : dispatch(login({email, password}, navigate))
     
     };
   
@@ -93,28 +92,18 @@ export default function SignIn() {
             {error && <Alert severity="error">{error}</Alert>}
             {
                 isSignup && 
-                <>
+                
                   <TextField
                     margin="normal"
                     required
                     fullWidth
-                    id="firstName"
+                    id="Name"
                     label="First Name"
-                    name="firstName"
+                    name="name"
                     autoComplete="name"
                     autoFocus
                   />
-                  <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      id="lastName"
-                      label="Last Name"
-                      name="lastName"
-                      autoComplete="name"
-                      autoFocus
-                  />
-                </>
+                
               
               }
               <TextField
@@ -153,13 +142,8 @@ export default function SignIn() {
               {
                 !isSignup && 
                 <Grid container>
-                  <Grid item xs>
-                    <RouterLink to="/forget-password" variant="body2">
-                      Forgot password?
-                    </RouterLink>
-                  </Grid>
                   <Grid item>
-                    <RouterLink to="sign-up" variant="body2">
+                    <RouterLink to="/sign-up" variant="body2">
                       {"Don't have an account? Sign Up"}
                     </RouterLink>
                   </Grid>

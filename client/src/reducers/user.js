@@ -1,10 +1,10 @@
-import { LOGOUT, LOGIN_BUYER, SIGNUP_BUYER } from '../constants/actionTypes'
+import { LOGOUT, LOGIN, SIGNUP } from '../constants/actionTypes'
 export default (user = JSON.parse(localStorage.getItem("profile")), action) => {
     switch (action.type) {
-        case SIGNUP_BUYER:
+        case SIGNUP:
             localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
             return { ...action?.data};
-        case LOGIN_BUYER:
+        case LOGIN:
             localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
             return {...action?.data};
         case LOGOUT:

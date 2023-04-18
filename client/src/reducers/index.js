@@ -7,6 +7,7 @@ import error from "./error";
 import isLoading from "./isLoading";
 import searchProducts from "./searchProducts";
 import flashMessage from "./flashMessage";
+import allVideos from "./allVideos";
 
 export default combineReducers({
     user,
@@ -16,5 +17,6 @@ export default combineReducers({
     searchProducts,
     error,
     isLoading, 
-    flashMessage
+    flashMessage,
+    allVideos
 })

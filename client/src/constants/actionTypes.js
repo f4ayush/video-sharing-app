@@ -6,6 +6,7 @@ export const LIKE = 'LIKE';
 
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
+export const ALL_VIDEOS = 'ALL_VIDEOS';
 
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const ALL_PRODUCTS = 'ALL_PRODUCTS';
@@ -19,8 +20,8 @@ export const DELETE_CART_ITEMS = 'DELETE_CART_ITEMS';
 export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM';
 export const DELETE_ALL_CART_ITEMS = 'DELETE_ALL_CART_ITEMS';
 export const SELLER_PRODUCTS = 'SELLER_PRODUCTS';
-export const LOGIN_BUYER = 'LOGIN_BUYER';
-export const SIGNUP_BUYER = 'SIGNUP_BUYER';
+export const LOGIN = 'LOGIN';
+export const SIGNUP = 'SIGNUP';
 
 export const MAKE_PAYMENT = 'MAKE_PAYMENT';
 
